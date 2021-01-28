@@ -1,0 +1,127 @@
+p{
+    color: rgba(0, 0, 0, 0.61);
+    font-weight: 600;
+    text-align: justify;
+}
+
+.logo{
+    width: 100px;
+    margin-top: 80px;
+    margin-left:150px;
+}
+
+.logo-header{
+    width: 100px;
+    margin-top:25px;
+
+}
+
+.navbar{
+    background-color: rgb(0, 78, 97);
+}
+
+.sidenav{
+    background-color: rgb(0, 78, 97);
+}
+
+.page-footer{
+    background-color: rgb(0, 78, 97);
+}
+
+.sidenav-links{
+    color: white;
+}
+
+.btn-card{
+    width: 100%;
+}
+
+.modal-close{
+    background-color: rgb(226, 3, 3);
+}
+
+.ourTeachersModalPic{
+    padding-left: 15px;
+    width: 200px;
+    float: right;
+}
+
+#modalAbout{
+    width: 95%;
+    min-height: 90%;
+    max-width: 600px;
+}
+
+#modalSignIn{
+    width: 95%;
+    height: 100%;
+    max-width: 500px;
+}
+
+.modal{
+    width: 95%;
+    height: 100%;
+   
+}
+
+.updateTeachersButtons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-send-login{
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.btn-gps-go{
+    margin-top: 15px;
+    width: 49%;
+    background-color: rgb(0, 102, 255);
+    box-shadow: 2px 2px 5px black;
+}
+
+.btn-gps-close{
+    margin-top: 15px;
+    width: 49%;
+    background-color: rgb(202, 0, 0);
+    box-shadow: 2px 2px 5px black;
+}
+
+.tri-card{
+    height: 300px;
+}
+
+.updateSection{
+    border: solid 2px rgb(30, 163, 3);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.update-btn{
+    margin-top: 2%;
+}
+
+.deleteSection{
+    border: solid 2px rgb(255, 187, 0);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.delete-btn{
+    margin-top: 2%;
+}
+
+@media(max-width: 992px){
+    .nav-header{
+        display: none;
+    }
+}
+
+@media(min-width: 992px){
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+    }
+}

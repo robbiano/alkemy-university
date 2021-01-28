@@ -1,0 +1,32 @@
+com/example/alkemy/TeacherRepository.java
+ com.example.alkemy.TeacherRepository
+com/example/alkemy/UserRepository.java
+ com.example.alkemy.UserRepository
+com/example/alkemy/User.java
+ com.example.alkemy.User
+com/example/alkemy/SubscriptionsRepository.java
+ com.example.alkemy.SubscriptionsRepository
+com/example/alkemy/UserDTO.java
+ com.example.alkemy.UserDTO
+com/example/alkemy/SubjectRepository.java
+ com.example.alkemy.SubjectRepository
+com/example/alkemy/SubjectDTO.java
+ com.example.alkemy.SubjectDTO
+com/example/alkemy/subscriptionsController.java
+ com.example.alkemy.subscriptionsController
+com/example/alkemy/SubscriptionsDTO.java
+ com.example.alkemy.SubscriptionsDTO
+com/example/alkemy/AlkemyApplication.java
+ com.example.alkemy.AlkemyApplication
+com/example/alkemy/TeacherDTO.java
+ com.example.alkemy.TeacherDTO
+com/example/alkemy/Subscriptions.java
+ com.example.alkemy.Subscriptions
+com/example/alkemy/Subject.java
+ com.example.alkemy.Subject
+com/example/alkemy/Teacher.java
+ com.example.alkemy.Teacher
+com/example/alkemy/teachersController.java
+ com.example.alkemy.teachersController
+com/example/alkemy/subjectsController.java
+ com.example.alkemy.subjectsController

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>ALKEMY_UNIVERSITY</title>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- navbar -header-->
+    <nav class="navbar header-navbar">
+      <ul>
+        <li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></li>
+      </ul>
+      <ul>
+        <li>
+          <a class="nav-header waves-effect modal-trigger white-text" href="#modalUpdateSubjects">Manage Subjects</a>
+        </li>
+        <li>
+          <a class="nav-header waves-effect modal-trigger white-text" href="#modalUpdateTeachers">Manage Teachers</a>
+        </li>
+        <li>
+          <a class="nav-header waves-effect modal-trigger white-text" href="#modalAbout">About</a>
+        </li>
+        <li>
+          <a class="nav-header waves-effect modal-trigger white-text" href="#modalSubjectInscriptions">Subject
+            Inscriptions</a>
+        </li>
+        <li>
+          <a class="nav-header waves-effect modal-trigger white-text" href="#modalOurTeachers">Teachers</a>
+        </li>
+        <li>
+          <a class="nav-header waves-effect modal-trigger white-text" href="#modalSignIn">LogIn</a>
+        </li>
+        <li><a class="nav-header" href=""><img class="logo-header" src="img/logo.png" alt=""></a>
+        </li>
+      </ul>
+    </nav>
+
+    <!--side navbar-->
+    <ul id="slide-out" class="sidenav">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="img/side background.jpg">
+          </div>
+          <a href="#user"><img class="logo" src="img/logo.png"></a>
+        </div>
+      </li>
+      <!-- Modal get signin trigger -->
+      <li><a class=" modal-trigger" href="#modalSignIn"><i class=" material-icons white-text">assignment_ind</i><span
+            class="sidenav-links">SignIn</span></a>
+      </li>
+      <!-- Modal get university Trigger -->
+      <li><a class=" modal-trigger" href="#modalGetUniversity"><i class=" material-icons white-text">drive_eta</i><span
+            class="sidenav-links">Get University</span></a>
+      </li>
+      <li><a href="tel:+542215697420"><i class="material-icons white-text">call</i> <span
+            class="sidenav-links">Call</span></a>
+      </li>
+      <!-- Modal get subjects inscriptions Trigger -->
+      <li><a class=" modal-trigger" href="#modalSubjectInscriptions"><i
+            class=" material-icons white-text">date_range</i><span class="sidenav-links">Subject Inscriptions</span></a>
+      </li>
+      <!-- Modal Trigger teachers -->
+      <li>
+        <a class="nav-header waves-effect modal-trigger white-text" href="#modalOurTeachers">Teachers</a>
+      </li>
+      <!-- Modal Trigger about -->
+      <li>
+        <a class="waves-effect modal-trigger white-text" href="#modalAbout">About</a>
+      </li>
+      <!-- Modal Trigger Update Teachers -->
+      <li>
+        <a class="nav-header waves-effect modal-trigger white-text" href="#modalUpdateTeachers">Update Teachers</a>
+      </li>
+      <!-- Modal Trigger Update Subjects -->
+      <li>
+        <a class="nav-header waves-effect modal-trigger white-text" href="#modalUpdateSubjects">Manage Subjects</a>
+      </li>
+    </ul>
+
+    <!-- Modal Structure  about-->
+    <div id="modalAbout" class="modal modal-fixed-footer ">
+      <div class="modal-content">
+
+        <h4>About</h4>
+
+        <img class="logo-header" src="img/logo.png" alt="">
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quia cumque, neque quae ratione ad.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea quo iure adipisci sunt quod! Quisquam, corporis
+          dignissimos ipsum saepe recusandae vel repellat. Natus provident eveniet ratione praesentium, nesciunt
+          consectetur iste modi inventore dignissimos quis earum repudiandae asperiores, itaque incidunt rerum illo
+          quaerat eligendi vitae corporis ut? Molestias veniam repellat, perspiciatis reprehenderit quos rem expedita
+          tenetur odit a quas? Earum sunt excepturi nesciunt aut voluptates odit voluptatum dicta aliquid non vel minima
+          necessitatibus magnam recusandae eaque, consequuntur, libero modi? Eius, unde consequuntur hic eligendi
+          aspernatur sint exercitationem aliquid omnis aliquam. Dicta quibusdam veniam doloremque magni natus pariatur
+          iste quam reprehenderit impedit?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-red btn">Close</a>
+      </div>
+    </div>
+
+    <!-- Modal Structure  SubjectInscriptions-->
+    <div id="modalSubjectInscriptions" class="modal modal-fixed-footer ">
+      <div class="modal-content">
+
+        <h3>Subjects</h3>
+
+        <table class="highlight responsive-table centered">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Time</th>
+              <th>Teacher</th>
+              <th>availability</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in subjects">
+              <td>{{data.name}}</td>
+              <td>{{data.time}}</td>
+              <td>{{data.teacher}}</td>
+              <td>{{data.availability}}</td>
+              <td><a v-on:click="joinSubject(data.id)" class="waves-effect waves-light btn">Register</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-red btn">Close</a>
+      </div>
+    </div>
+
+    <!-- Modal Structure  login-->
+    <div id="modalSignIn" class="modal modal-fixed-footer ">
+      <div class="modal-content">
+        <h4>LogIn</h4>
+
+        <input type="number" name="dni" id="" placeholder="DNI">
+        <input type="number" name="file" id="file" placeholder="File">
+        <p>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Student</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="group1" type="radio"  />
+            <span>Admin</span>
+          </label>
+        </p>
+
+        <button class="blue darken-2 btn-send-login btn waves-effect waves-light pulse z-depth-4" name="action">LogIn
+          <i class="material-icons right">send</i>
+        </button>
+
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-red btn">Close</a>
+      </div>
+    </div>
+
+    <!-- Modal Structure our teachers-->
+    <div id="modalOurTeachers" class="modal modal-fixed-footer ">
+      <div class="modal-content">
+        <h4>Our Teachers</h4>
+        <img class="ourTeachersModalPic" src="img/University-quad-building-1080x810.jpg" alt="">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex nemo ab accusantium, consequuntur maiores earum,
+          error fugit sunt magnam optio corporis possimus aut consectetur tenetur atque architecto nesciunt obcaecati
+          iure nostrum voluptates nihil alias voluptate, ad eveniet. Repellat libero, excepturi veniam dicta alias
+          minima, deleniti temporibus magnam dignissimos tenetur sit. Corporis sint laborum dicta, necessitatibus
+          mollitia laboriosam earum iure, ut eligendi eum recusandae expedita, consequuntur perspiciatis soluta quam
+          alias voluptate quia cum! Quisquam, illo eaque similique odit sed adipisci, asperiores ducimus saepe
+          recusandae animi blanditiis sapiente! Obcaecati corrupti consectetur commodi, dolorem voluptatum odio, omnis
+          labore illum corporis perspiciatis suscipit? Tempore voluptatum et quod quaerat impedit repellendus minima
+          dolores magni, eius architecto earum, iusto rerum sint minus autem ut distinctio, vero eligendi neque ea
+          delectus accusamus tempora. Nobis molestiae esse iste quisquam ab eos nemo accusamus enim ratione rem,
+          sapiente delectus aspernatur mollitia expedita excepturi. Eum sint repellendus voluptatibus nobis alias
+          consectetur numquam maxime molestias est esse animi fugit quisquam fugiat, ea atque nihil! Velit atque
+          provident labore consequuntur blanditiis explicabo modi porro, delectus animi facilis rerum. Expedita
+          voluptates maiores, natus ipsa nesciunt porro earum suscipit atque cupiditate. Provident, facere fuga soluta,
+          ducimus nihil animi deserunt corrupti, suscipit temporibus libero inventore!</p>
+
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-red btn">Close</a>
+      </div>
+    </div>
+
+    <!-- Modal Structure  UpdateTeachers-->
+    <div id="modalUpdateTeachers" class="modal modal-fixed-footer ">
+      <div class="modal-content">
+        <h4>Teachers</h4>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input v-model:value="teacherName" id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input v-model:value="teacherLastName" id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input v-model:value="teacherDni" type="number" name="dni" id="dni">
+                <label for="">Dni</label>
+              </div>
+              <div class="input-field col s6">
+                <label>
+                  <input type="checkbox" v-model:value="teacherActive" checked="checked" />
+                  <span>Active</span>
+                </label>
+              </div>
+            </div>
+            <div class="row updateSection">
+              <div class="input-field col s8 ">
+                <input v-model:value="teacherId" type="number" name="teacherId" id="teacherId">
+                <label for="teacherId">Update Teacher By Id</label>
+              </div>
+              <a href="#!" v-on:click="updateTeacher"
+                class="update-btn col s4 green darken-3 waves-effect waves-red btn">Update
+              </a>
+            </div>
+            <div class="row deleteSection">
+              <div class="input-field col s8">
+                <input v-model:value="deleteTeacherId" type="number" name="deleteTeacherId" id="deleteTeacherId">
+                <label for="deleteTeacherId">Delete Teacher By Id</label>
+              </div>
+              <a href="#!" v-on:click="deleteTeacher" class="delete-btn col s4 amber waves-effect waves-red btn">Delete
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer updateTeachersButtons">
+        <a href="#!" v-on:click="createTeacher" class=" blue darken-2 waves-effect waves-blue btn">Create</a>
+        <a href="#!" class="modal-close waves-effect waves-red btn">Close</a>
+      </div>
+    </div>
+
+    <!-- Modal Structure  UpdateSubjects-->
+    <div id="modalUpdateSubjects" class="modal modal-fixed-footer ">
+      <div class="modal-content">
+        <h4>Subjects</h4>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input v-model:value="subjectName" id="name" type="text" class="validate">
+                <label for="name">Subject Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input v-model:value="subjectTime" id="time" type="text" class="validate">
+                <label for="time">Time</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input v-model:value="subjectTeacher" id="idTeacher" type="number" class="validate">
+                <label for="idTeacher">Teacher Id</label>
+              </div>
+              <div class="input-field col s6">
+                <input v-model:value="subjectAvailability" id="availability" type="number" class="validate">
+                <label for="availability">Availability</label>
+              </div>
+            </div>
+            <div class="row updateSection">
+              <div class="input-field col s8">
+                <input v-model:value="subjectId" id="subjectId" type="number" class="validate">
+                <label for="subjectId">Update Subject By Id</label>
+              </div>
+              <a href="#!" v-on:click="updateSubject"
+                class="update-btn col s4 green darken-3 waves-effect waves-red btn">Update</a>
+            </div>
+            <div class="row deleteSection">
+              <div class="input-field col s8">
+                <input v-model:value="deleteBySubjectId" id="deleteSubjectId" type="number" class="validate">
+                <label for="deleteSubjectId">Delete Subject By Id</label>
+              </div>
+              <a href="#!" v-on:click="deleteSubject"
+                class="delete-btn col s4 amber waves-effect waves-red btn">Delete</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer updateTeachersButtons">
+        <a href="#!" v-on:click="createSubject" class=" blue darken-2 waves-effect waves-blue btn">Create</a>
+        <a href="#!" class="modal-close waves-effect waves-red btn">Close</a>
+      </div>
+    </div>
+
+    <!-- Modal get university -->
+    <div id="modalGetUniversity" class="modal modalGetUniversity">
+
+      <div class="modal-content">
+
+        <div>
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3270.828168640594!2d-57.950017349729215!3d-34.93584618255655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e61c7b53c535%3A0xcc26eb5eb8ba9e2b!2sInstituto%20de%20Neurociencias%20Alexander%20Luria!5e0!3m2!1ses!2sar!4v1604811137196!5m2!1ses!2sar"
+            width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0">
+          </iframe>
+
+          <a class="btn btn-gps-go waves-effect waves-blue "
+            href="https://www.google.com.ar/maps/dir//Instituto+de+Neurociencias+Alexander+Luria,+C.+65+1177,+B1904+AQS,+Provincia+de+Buenos+Aires/@-34.9358462,-57.9500173,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x95a2e61c7b53c535:0xcc26eb5eb8ba9e2b!2m2!1d-57.9478233!2d-34.9358506!3e0">Go
+          </a>
+
+          <a href="#!" class="btn btn-gps-close modal-close waves-effect waves-red ">Close
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!--slider-->
+    <div class="slider">
+      <ul class="slides">
+        <li>
+          <img src="img/slider1.jpg"> <!-- random image -->
+          <div class="caption left-align">
+            <br><br><br><br><br>
+            <h5 class="light grey-text text-lighten-3">Alkemy</h5>
+            <h2>UNIVERSITY</h2>
+          </div>
+        </li>
+        <li>
+          <img src="img/slider1.jpg"> <!-- random image -->
+        </li>
+      </ul>
+    </div>
+
+    <!--cards-->
+    <div class="container">
+      <div class="row">
+        <!--card-->
+        <div class="col m4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="img/University-quad-building-1080x810.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Subjects<i
+                  class="material-icons right">more_vert</i></span>
+              <p><a class="btn btn-card bg blue  modal-trigger" href="#modalSubjectInscriptions">Inscriptions</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Subject Register<i
+                  class="material-icons right">close</i></span>
+              <p>Click on inscriptions button to choose a subject.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!--card-->
+        <div class="col m4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="img/University-quad-building-1080x810.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Teachers<i
+                  class="material-icons right">more_vert</i></span>
+              <p><a class="btn btn-card bg blue  modal-trigger" href="#modalOurTeachers">Our teachers</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!--card-->
+        <div class="col m4">
+          <div class="card hoverable">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="img/University-quad-building-1080x810.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">University<i
+                  class="material-icons right">more_vert</i></span>
+              <p><a class="btn btn-card bg blue modal-trigger" href="#modalAbout">More</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Stay Home !<i
+                  class="material-icons right">close</i></span>
+              <p>Get our on line classes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--footer-->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2014 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!--materialize-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
+
+    //inputs
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.autocomplete');
+      var instances = M.Autocomplete.init(elems);
+    });
+
+
+    //slider
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.slider');
+      var instances = M.Slider.init(elems);
+    });
+
+    //side navbar
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+    });
+
+    //modal 
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems);
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script src="js/teachers.js"> </script>
+
+</body>
+
+</html>
